@@ -5,8 +5,14 @@
  * @subpackage Bootpresswp
  * @since Bootpresswp 0.1
  *
- * Last Updated: Aug 24, 2015
+ * Last Updated: Sep 1, 2016
  */
+// Link to the main style sheet
+add_action('wp_enqueue_scripts', 'my_enqueue_assets');
+
+function my_enqueue_assets() {
+    wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
+}
 
 function remove_scripts()
 {
@@ -21,5 +27,3 @@ wp_enqueue_script( 'child-bootpresswp-script', get_stylesheet_directory_uri() .'
 }
 add_action( 'wp_enqueue_scripts', 'child_bootpresswp_loader', 200 );
 
-
- ?>
